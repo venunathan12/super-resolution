@@ -81,6 +81,7 @@ target_link_libraries(
   gtest
   gtest_main
   ${OpenCV_LIBS}
+  -lpthread -lm
 )
 
 

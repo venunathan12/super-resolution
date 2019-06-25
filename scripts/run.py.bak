@@ -2,7 +2,7 @@
 
 import argparse
 import subprocess
-import tkinter as tk
+import Tkinter as tk
 
 # The default configuration values.
 # TODO: This should be loaded from a config file.
@@ -50,8 +50,8 @@ def run_generate_data(binary_path, config):
   command += ' --noise_sigma={}'.format(config['noise_sigma'])
   command += ' --downsampling_scale={}'.format(config['scale'])
   command += ' --number_of_frames={}'.format(config['number_of_frames'])
-  print('Running GenerateData command:')
-  print(command)
+  print 'Running GenerateData command:'
+  print command
   subprocess.call(command.split(' '))
 
 def run_super_resolution(binary_path, config):
@@ -95,8 +95,8 @@ def run_super_resolution(binary_path, config):
      command += ' --verbose'
   if config['use_numerical_differentiation']:
     command += ' --use_numerical_differentiation'
-  print('Running SuperResolution command:')
-  print(command)
+  print 'Running SuperResolution command:'
+  print command
   subprocess.call(command.split(' '))
 
 def make_gui_window(binary_path):

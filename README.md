@@ -139,3 +139,11 @@ Other Resources
 
 - [Install on Linux without root access](instructions/install_linux_no_root.txt).
 - [List of known issues (and solutions) for installing and running the code](instructions/known_issues.md).
+
+Note
+----
+
+* Solving in wavelet domain tends to sharpen edged to the extent that parts which are not edges, get blurred.
+* Using numerical differentiation crashes the program.
+* When using multiple images, if the images don't have very small displacements among them, then this algorithm performs poorly.
+* Using an upsampling_scale of 1 does not give better clarity output image for all inputs.

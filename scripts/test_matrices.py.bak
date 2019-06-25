@@ -18,21 +18,21 @@ def downsample(image, scale):
         index = row * ncols + col
         D[-1][index] = 1
   D = np.matrix(D)
-  print('Downsampling matrix:')
-  print(D)
-  print(D.shape)
+  print 'Downsampling matrix:'
+  print D
+  print D.shape
   # Apply the downsampling and print the results:
   DIv = D * Iv  # downsampled, vectorized
-  print('Final vectorized output:')
-  print(DIv)
+  print 'Final vectorized output:'
+  print DIv
   DI = DIv.reshape(nrows / scale, ncols / scale)
-  print('Final downsampled image:')
-  print(DI)
+  print 'Final downsampled image:'
+  print DI
   return DI
 
 def conv_kernel(image, kernel):
-  print('Kernel:')
-  print(kernel)
+  print 'Kernel:'
+  print kernel
   # Image dimensions:
   nrows = image.shape[0]
   ncols = image.shape[1]
@@ -58,20 +58,20 @@ def conv_kernel(image, kernel):
           index = image_row * ncols + image_col
           kernel_coords = (offset[0] + mid_row, offset[1] + mid_col)
           K[-1][index] = kernel[kernel_coords]
-  print('Kernel matrix:')
-  print(K)
-  print('Convolved image:')
+  print 'Kernel matrix:'
+  print K
+  print 'Convolved image:'
   Iv = image.reshape(nrows * ncols, 1)  # vectorize the image
   KIv = K * Iv
   KI = KIv.reshape(nrows, ncols)  # un-vectorize the image back
-  print(KI)
-  print('Tranposed kernel matrix:')
+  print KI
+  print 'Tranposed kernel matrix:'
   KT = np.transpose(K)
-  print(KT)
-  print('Tranpose convolved image:')
+  print KT
+  print 'Tranpose convolved image:'
   KTIv = KT * Iv
   KTI = KTIv.reshape(nrows, ncols)
-  print(KTI)
+  print KTI
 
 if __name__ == '__main__':
   I = np.matrix(
@@ -79,8 +79,8 @@ if __name__ == '__main__':
        [7, 8, 9, 0, 1, 2],
        [9, 7, 5, 4, 2, 1],
        [2, 4, 6, 8, 0, 1]])
-  print('Test image:')
-  print(I)
+  print 'Test image:'
+  print I
   I = downsample(I, 2)
   # Gradient operator kernel:
   #kernel = np.matrix(
@@ -105,7 +105,7 @@ if __name__ == '__main__':
        [4, 5, 6],
        [7, 8, 9]])
   conv_kernel(I, kernel)
-  print('---------------')
+  print '---------------'
   kernel2 = np.matrix(
       [[9, 8, 7],
        [6, 5, 4],
